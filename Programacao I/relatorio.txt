@@ -1,0 +1,146 @@
+
+                            ..-.---------..
+                       -.-/osyhhdddddddhhhso/:.
+                     -+yhddddddddddddddddddddhy+..
+                 ..+yddddddddddddddddddddddddddddh+.
+                .ohddddddddddddddddddddddddddddddddds-.
+              `ohddddddddddddddddddddddddddddddddddddds.
+             -hdddd/ydddddddddddddddddddddddddddddoodddh:
+            /dddddd.`+hddddddddddddddddddddddddds- oddddd+
+           :ddddddd:  .oddddddddddhhddddddddddy:`  ydddddd+
+          .ddddddddo    -sdddddddh/`ydddddddh/`   `dddddddd:
+          sddddddddd`     -yddddddo.ddddddh+`     /ddddddddh\
+         .dddddddddd+      `:ydddd/`ydddho.      `hddddddddd:
+         /ddddddddddd-       `:++-  `/o/.        oddddddddddo
+        `odddddddddddh.                         +ddddddddddds
+         +ddddddddddddh/`                     .sdddddddddddds
+         :ddddddddddddddyo:...-/-    `/:-..-/shddddddddddddd/
+         `hdddddddddddddddddddddh-   odddddddddddddddddddddd.
+          /ddddddddddddddddddddddh- oddddddddddddddddddddddo
+           sddddddddddddddddddddddhoddddddddddddddddddddddy`
+           `sddddddddddddddddddddddhdddddddddddddddddddddh.
+           ``sddddddddddddddddddddo-hdddddddddddddddddddy.
+             `/hddddddddddddddddds  -hddddddddddddddddh+`
+               .ohddddddddddddddd////sddddddddddddddds.
+                `.+hddddddddddddddddddddddddddddddho-
+                  ``:ohddddddddddddddddddddddddhs/`
+                     `-/sdhhddddddddddddddhhhs+-`
+                        `.++o++ooooooo++++/:-`
+
+
+                        Relatório Programação I
+                Trabalho prático ano lectivo 2013/2014
+
+                                            Realizado por:
+                                            Aluno nº 29248 - Hiago Oliveira
+                                            luno nº 31511 - Rui Oliveira
+
+
+    No relatório iremos descrever sucintamente as decisões tomadas antes de
+termos começado a desenvolver o código, assim como a execução do mesmo, desde o
+início até à resolução do problema/puzzle criado. (Neste caso, uma variante do
+famoso "Numberlink"). É de realçar que o código desenvolvido para o trabalho
+está em inglês, pois assim começa cedo o bom costume de desenvolver código com
+uma lingua universal, acessível e compreendido por todos, independentemente da
+sua nacionalidade.
+
+    Começámos o nosso trabalho por definir a estrutura de dados a utilizar,
+qual seria a mais adequada. Acabámos por escolher dois tipos, listas e
+dicionários. As listas basicamente iriam conter o tabuleiro/aldeia para o nosso
+jogo, assim como todos os caminhos possíveis. Segue-se um exemplo de uma lista
+contendo a aldeia criada, de tamanho(size) 3x3 com 2 habitantes, cujas
+coordenadas são (0,0) para a poção e (2,2) para a casa do primeiro habitante,
+e (1,0) e (2,1) para a poção e casa do segundo habitante, respectivamente:
+
+                    [[1, 2, 0], [0, 0, 2], [0, 0, 1]]
+
+    Nesta "lista de listas", cada uma corresponde a um conjunto de coordenadas,
+neste caso, a primeira lista contém todos os x quando y = 0, a segunda lista
+todos os x quando y = 1, e por fim a terceira todos os x quando y = 2. Outro
+metodo de representar a lista da aldeia é usando uma função por nós definida
+chamada draw_board(), que tem como argumento a tal lista de listas, imprimindo
+todos os elementos um por um, podendo assim ter uma melhor percepção da mesma.
+A sua representação usando a função acima mencionada seria a seguinte:
+
+                                1 2 0
+                                0 0 2
+                                0 0 1
+
+    Usámos também dicionários para guardar a combinação dos habitantes e as
+suas respectivas coordenadas, isto é, localização da sua poção e da sua casa,
+para no desenrolar do projecto obtermos de forma fácil e rápida a informação
+necessária. Segue-se um exemplo deste dicionário:
+
+                    {1: [0, 0, 2, 2], 2: [1, 0, 2, 1]}
+
+    Desta forma, sabemos que os dois primeiros valores (index 0 e index 1) da
+lista de cada habitante(villager) correspondem ao x e y da sua poção, e os dois
+últimos valores (index 2 e index 3) ao x e y da sua casa.
+
+    Outro dicionário usado foi para guardar como chave cada habitante e o valor
+correspondente a uma lista de todos os caminhos possíveis entre a sua poção e a
+sua casa. Esta lista agrega muitos caminhos (ou paths), e quanto maior a aldeia
+maior a lista, chegando mesmo a ter vários milhares de possibilidades...
+
+    Passaremos agora a explicar o código implementado, desde a sua execução até
+o próprio chegar ao resultado final do puzzle resolvido. Começamos por inquirir
+ao user se deseja introduzir as variáveis para o problema manualmente ou se
+pretende especificar um ficheiro já com todas as variáveis, ficheiro este que
+terá de se localizar no directório no qual o script foi lançado. O programa
+procede então de acordo com a escolha do user, apresentando um prompt sempre
+que necessário caso as variáveis tenham de ser introduzidas manualmente.
+O programa testa ainda a validade dos argumentos inseridos, no caso do tamanho
+da aldeia, se está compreendida entre 2 e 7, no número de habitantes que a
+aldeia incorpora, entre 1 e o tamanho da aldeia, testando também mais tarde as
+coordenadas introduzidas para as poções e as casas, certificando-se que são
+válidas, isto é, se estão compreendidas entre o tabuleiro de jogo e se nenhuma
+casa ou poção se encontra numa coordenada já ocupada. Estes testes ocorrem quer
+as variaveis sejam introduzidas manualmente ou importadas de um ficheiro.
+
+    Utilizando as variáveis até agora recolhidas, é criada uma nova instância
+de Village, chamada new_game. Optámos por trabalhar com classes pois as suas
+vantagens são várias, desde poder criar váriadas instâncias diferentes (cada
+uma herdando características gerais de uma aldeia), assim como a facilidade de
+manter o código mais arrumado e legível. A classe contém dois métodos definidos
+, o seu construtor, __init__, que toma como argumentos o tamanho da aldeia
+desejada assim como o número de habitantes que a irão povoar, construindo logo
+o tabuleiro respectivo, assim como o método populate, que trata então de pegar
+no número de villagers e para cada um atribuir as coordenadas das suas casas e
+poções, quer através de um input pelo user, ou importado também de um ficheiro.
+
+    Tendo todas as ferramentas necessárias para começar a resolver o puzzle, é
+invocada a função solve, que começa por gerar, para cada habitante, todos os
+caminhos possíveis desde a sua poção até à sua casa. Para a auxiliar é chamada
+outra função, path_finder, que retorna então a lista de todos os caminhos
+possíveis de 'a' a 'b', sendo esta agregada ao seu morador correspondente.
+
+    Após concluída a tarefa anterior, outra função é chamada para tratar dos
+dados até agora criados, sort_out, que é responsável por analizar as listas de
+todos os trajectos possíveis, e comparar quais se intersectam ou não, através
+de outra função, intersects, que compara um percurso da lista de um habitante
+com outro, isto é, para cada coordenada da lista A, se essa coordenada for
+usada na lista B, então os trajectos comparados irão de facto cruzar-se,
+excluíndo assim esse caminho e testando o próximo possível. Isto é feito para
+todas as listas de todos os habitantes, chegando no final à solução pretendida,
+neste caso, uma chave que nos diz qual conjunto de caminhos não se irá
+intersectar.
+
+    Por fim, o script trata de imprimir no ecrã se o puzzle tem solução ou não,
+exibindo a palavra Alesia caso não, ou a palavra Toutatis, caso sim, mostrando
+em seguida a aldeia devidamente preenchida com a solução, por exemplo:
+
+                                1 2 2
+                                1 0 2
+                                1 1 1
+
+Na eventualidade do utilizador ter escolhido importar um ficheiro com as
+variaveis, a resposta é em vez disso escrita num ficheiro para posteriormente
+conferir. Para concluir, o programa pergunta se o user pretende voltar a jogar
+ou não , terminando a sua execução caso o utilizador assim o deseje.
+
+    Para concluir este relatório, é de referir algumas bugs encontradas no
+programa que não conseguimos resolver até à data limite de entrega. Primeiro,
+caso puzzle consista numa aldeia de tamanho 6 ou 7, e apenas um habitante,
+devido à natureza do código desenvolvido, o resultado demora demasiado tempo
+para ser exibido, pois o programa está a calcular todos os trajectos possiveis,
+sendo todas as possíbilidades um número na casa dos milhares..

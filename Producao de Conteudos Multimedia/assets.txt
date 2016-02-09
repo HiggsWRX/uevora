@@ -1,0 +1,126 @@
+Friendly Elder - 15$
+
+    Effect: +1 Kps
+
+    Description: Well you made it! You always dreamed of getting your
+    business, now you do. But oh boy, did all that typing make you tired?
+    Well then, why not get an elder person from the local retirement home to
+    help you typing out what you need! Sure they might be slow typers, but if
+    you give them a paper with what you need typed in, they will deliver.
+    (Atention, the paper has to be big and have big bold letters, otherwise
+    results may not be as expected. Healthcare not included.)
+
+    Upgrades:
+
+        Nurse's help - 200$
+
+            Effect: +100% elder effectiveness.
+
+            Description: Get your elder's effectiveness up with a little help from
+            their nurses.
+
+Kid - 100$
+
+    Effect: +5 Kps
+
+    Description: Kids are good helpers as long as you are a good money source.
+    Give them a few bucks and they'll help you out with all your typing tasks.
+    Since they're kids, they spend most of their time on their computer so
+    they know what a keyboard is, at least.
+    Just make sure you're a kids person, they can get annoying sometimes.
+
+    Upgrades:
+
+        Promise candy - 1500$
+
+            Effect: +100% kid effectiveness.
+
+            Description: Everyone knows if you promise something to a kid they
+            will behave until they get that something. Invest some money into
+            getting more candies so they will help you out a little bit more.
+            Can't go wrong with offering kids some candy!
+
+Computer Science Student - 500$
+
+    Effect: + 40 Kps
+
+    Description: These assets... I mean, students, are a great help to your
+    flourishing new business. They are more than accostumed to a keyboard
+    and can even type without looking at it! Wow!
+    Productivity may be... not the best, as they keep getting distracted by
+    the internet. A price to pay when asking teenagers for help.
+
+    Upgrades:
+
+        Take away their mouse - 6500$
+
+            Effect: 100% CS student effectiveness.
+
+            Description: While a little unorthodox, taking away the students'
+            mouse will surely increase productivity, as it becomes bothersome
+            to navigate the internet. This way, they will spend more time
+            typing and less time looking at cat pictures.
+
+Outsourced Contractor - 3,000$
+
+    Effect: +100 Kps
+
+    Description: Business is obviously going well, so you might need to
+    step it up a little bit. Why not outsource all your needs to a local
+    company? You will have guaranteed results, we promise. (No refunds.)
+
+    Upgrades:
+
+        Indian company outsourcing - 35,000$
+
+            Effect: +100% contractor effectiveness.
+
+            Description: When you outsource something to an indian company you
+            obviously need work done, fast. So that should be your next step.
+            Service quality is not garanteed to be the best, as long as it
+            gives out decent enough productivity.
+
+World Typewritting Champion - 10,000$
+
+    Effect: +400 Kps
+
+    Description: Look, we know your business is going better than ever.
+    We know you need the best you can get (as humanly as possible)
+    These will tremendously help you on your task to get your programs written
+    out as fast as possible. Just make sure to put them on a noise-cancelling
+    room, you wouldn't want to be near one for more than a couple minutes.
+    Also, make sure the keyboards you provide them are sturdy. After all,
+    it doesn't matter if you have the world's fastest typer if he has nowhere
+    to type with.
+
+    Upgrades:
+
+        Sturdy keyboards - 150,000$
+
+            Effect: +100% Champion effectiveness.
+
+            Description: The sturdier the keyboards, the harder they can type,
+            and everyone knows the harder someones types, the faster it becomes.
+            With the new keyboards your typewritting champions will be able
+            to type faster than ever!
+
+Robot 4444P: Intelligent Sofisticated Typer - 40,000$
+
+    Effect: +1,000 Kps
+
+    Description: -beep- Need help? Robot helps. -beep-
+    This robot will be your ultimate asset when you need some typing done.
+    And by some, we mean a "typical mystery novel book" ammount of words
+    typed out... in a second. Watch as this robot laughs at all your human's puny
+    attempts at typing fast.
+    (Warning: Some maintenance required after a few seconds. Replacement parts
+    not included.)
+
+    Upgrades:
+
+        Software update - 550,000$
+
+            Effect: +100% robot effectiveness.
+
+            Description: Upgrade your robot's software to raise it's effectiveness.
+            50% less chance to get caught in an infinite loop and have to reboot it!

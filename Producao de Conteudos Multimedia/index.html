@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Clack!atyper</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row main-row">
+            <div class="col-md-8 main-row">
+                <div class="row main-row border-right-light">
+                    <div class="col-md-8 border-bot">
+                        <img src="images/keystroke.png" height="50px"> <span id="ks-count" style="font-size:19px;color:#c9c9c9">0</span> keystrokes per second
+                    </div>
+                    <div class="col-md-4 border-bot">
+                        <img src="images/dollar.png" height="50px"> <span id="cash" style="font-size:19px;color:#c9c9c9">0</span>
+                    </div>
+                    <div class="col-md-12 border-top-light" align="center">
+                        <img src="images/keyboard.png" vspace="40px">
+                    </div>
+                    <!--
+                    <div class="col-md-12" align="center">
+                        <a data-toggle="popover" data-html="true" data-placement="left" data-content="<div><img src='/images/elder.png'>Hello World</div>" data-trigger="hover focus">Tooltip</a>
+                    </div>
+                    -->
+                    <div class="col-md-10 col-md-offset-1" id="console-wrapper">
+                        <div id="console">
+                            Last login: Sun Jan 24 04:24:16 on ttys01 </br>
+                            [clack!atyper@local-pc ~]$
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 sidebar border-left">
+                <div class="row" id="assets">
+                    <div class="col-md-12 border-bot" align="center"><img src="images/logo.png"></div>
+                    <div class="col-md-12 border-top-light"></div>
+                    <div class="col-md-12" id="tab-wrapper">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs border-bot" role="tablist" id="store-tab">
+                            <li class="nav-item" id="test">
+                                <a class="nav-link active" data-toggle="tab" href="#assets-tab" role="tab">Assets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#upgrades-tab" role="tab">Upgrades</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content border-top-light">
+                            <div class="tab-pane fade in active" id="assets-tab" role="tabpanel">
+                                <div class="col-md-12" id="noneUnlocked">
+                                    </br>
+                                    <p style="color:#c9c9c9" align="center">No assets unlocked yet! Play a bit.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="upgrades-tab" role="tabpanel">
+                                <div class="col-md-12" id="noUpgrades">
+                                    </br>
+                                    <p style="color:#c9c9c9" align="center">No upgrades unlocked yet! Play a bit.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- row main-row -->
+
+    </div>
+    <!-- container-fluid -->
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.0.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/scripts.js"></script>
+
+<script type='text/javascript'>
+    Typer.speed = 3;
+
+    Typer.file = 'kernel.txt';
+
+    Typer.init();
+</script>
+
+</html>

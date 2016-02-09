@@ -1,0 +1,11 @@
+IX:{Séries|(}{2}
+IX:{Séries!geométricas|(}{4}
+IX:{Constante de Euler}{4}
+IX:{Séries!geométricas|)}{4}
+IX:{Séries!aritméticas|(}{4}
+IX:{Séries!aritméticas|)}{5}
+IX:{Séries!harmónicas|(}{5}
+IX:{Constante de Euler}{5}
+IX:{Séries!harmónicas|)}{5}
+IX:{Séries|)}{5}
+

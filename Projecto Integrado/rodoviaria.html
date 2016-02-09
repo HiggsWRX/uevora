@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rodoviaria Alentejo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Transportes Publicos de Evora</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="trevo.html">trevo</a></li>
+                    <li class="active"><a href="rodoviaria.html">rodalentejo</a></li>
+                    <li><a href="taxis.html">Taxis</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div id="carreiras" class="container">
+        <div class="page-header">
+            <h2>Carreiras rodalentejo</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Arraiolos</h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#modalArr">Ver Horario</a>
+            </div>
+            <div class="col-md-12">
+                <h3>Beja</h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#modalBej">Ver Horario</a>
+            </div>
+            <div class="col-md-12">
+                <h3>Montemor</h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#modalMon">Ver Horario</a>
+            </div>
+            <br>
+        </div>
+        <br>
+        <h4>Todas as carreiras são apanhadas na estação de autocarros.</h4>
+    </div>
+
+    <div id="mais" class="container">
+        <div class="page-header">
+            <h2>Outras informações</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><h4>Contactos</h4></div>
+            <div class="col-md-4">
+                Évora (Sede)<br>
+                Av. Tulio Espanca - Terminal Rodoviário<br>
+                7005-840 Évora<br>
+                Telefone: 266 738 120<br>
+                Fax: 266 738 130<br>
+                <a href="mailto:geral@rodalentejo.pt">e-mail: geral@rodalentejo.pt</a><br>
+            </div>
+            <div class="col-md-4">
+                Portalegre<br>
+                Central de Camionagem<br>
+                Avenida do Brasil S/N<br>
+                7300-168 Portalegre<br>
+                Telefone: 245 330 096<br>
+                Fax: 245 331 558<br>
+                <a href="mailto:alugueres.portalegre@rodalentejo.pt">e-mail: alugueres.portalegre@rodalentejo.pt</a><br>
+            </div>
+            <div class="col-md-4">
+                Santiago do Cacém<br>
+                Rua Cidade de Setúbal nº14<br>
+                7540 - 150 Santiago do Cacém<br>
+                Telefone: 269 818 750<br>
+                Fax: 269 827 148<br>
+                <a href="mailto:alugueres.santiago@rodalentejo.pt">e-mail: alugueres.santiago@rodalentejo.pt</a><br>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="col-xs-12">
+            <footer>
+                <p>&copy; Projecto Integrado 2015/2016 - Eng. Informática - Universidade de Évora</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- modals -->
+
+    <div id="modalArr" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Arraiolos</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="img/horario_arraiolos.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modalBej" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Beja</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="img/horario_beja.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modalMon" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Montemor</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="img/horario_montemor.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

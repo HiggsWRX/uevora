@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taxis Evora</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Transportes Publicos de Evora</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="trevo.html">trevo</a></li>
+                    <li><a href="rodoviaria.html">rodalentejo</a></li>
+                    <li class="active"><a href="taxis.html">Taxis</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <h3>Táxis</h3>
+            </div>
+
+            <div class="col-md-6">
+                <h4>Contactos</h4>
+            </div>
+            <div class="col-md-6">
+                <h4>Praças de Táxis</h4>
+            </div>
+            <div class="col-md-4">
+                <p>Táxis Ramalho &amp; Carrilho Lda</p>
+                <strong>Tlm</strong>: +351 960 438 890 <br> +351 965 807 127 <br> +351 966 325 151
+                <br>
+                <strong>Email</strong>: <a href="mailto:taxisramalhoecarrilho@gmail.com">taxisramalhoecarrilho@gmail.com</a><br>
+                <strong>Facebook</strong>: <a href="https://www.facebook.com/taxievora34">https://www.facebook.com/taxievora34</a>
+            </div>
+            <div class="col-md-6">
+                <div id="googleMap" style="width:500px;height:380px;margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="col-xs-12">
+            <footer>
+                <p>&copy; Projecto Integrado 2015/2016 - Eng. Informática - Universidade de Évora</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script>
+        var map;
+        var comboios = new google.maps.LatLng(38.560335, -7.908078);
+        var estacao = new google.maps.LatLng(38.567787, -7.918346);
+        var giraldo = new google.maps.LatLng(38.570969, -7.909673);
+
+        // Google maps para as praças de taxis
+        var mapProp = {
+            center: new google.maps.LatLng(38.570969, -7.909673),
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: comboios,
+            title: "Estação de Comboios"
+        });
+        marker.setMap(map);
+
+        var marker = new google.maps.Marker({
+            position: estacao,
+            title: "Rodoviária"
+        });
+        marker.setMap(map);
+
+        var marker = new google.maps.Marker({
+            position: giraldo,
+            title: "Praça do Giraldo"
+        });
+        marker.setMap(map);
+
+        //google.maps.event.trigger(map, "resize");
+
+        var bounds = new google.maps.LatLngBounds();
+        bounds.extend(estacao);
+        bounds.extend(comboios);
+        bounds.extend(giraldo);
+        map.fitBounds(bounds);
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+</body>
+
+</html> 

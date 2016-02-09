@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Autocarros Trevo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Transportes Publicos de Evora</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="trevo.html">trevo</a></li>
+                    <li><a href="rodoviaria.html">rodalentejo</a></li>
+                    <li><a href="taxis.html">Taxis</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <div id="carreiras" class="container">
+        <div class="page-header">
+            <h2>Carreiras trevo</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>21 <small>Louredo - Luis de Camões</small></h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira21">Ver Horario</a>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira21mapa">Ver Paragens</a>
+            </div>
+            <div class="col-md-12">
+                <h3>22 <small>Canaviais - Parque Industrial</small></h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira22">Ver Horario</a>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira22mapa">Ver Paragens</a>
+            </div>
+            <div class="col-md-12">
+                <h3>31 <small>25 Abril - Malagueira</small></h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira31">Ver Horario</a>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira31mapa">Ver Paragens</a>
+            </div>
+            <div class="col-md-12">
+                <h3>33 <small>Sra. da Saúde - Fontanas</small></h3>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira33">Ver Horario</a>
+            </div>
+            <div class="col-sm-2">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#carreira33mapa">Ver Paragens</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="titulos" class="container">
+        <div class="page-header">
+            <h2>Títulos de Transporte</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h4>Tarifário</h4><small>
+                        <b>CARTÃO PRÉ-COMPRADO</b><br>
+                        10 Viagens - € 5,20<br>
+                        20 Viagens - €10,40 <br>
+                        <br>
+                        BILHETE VIAGEM URBANAS - € 1,30<br>
+                        <br>
+                        BILHETE DIÁRIO LINHA AZUL - € 1<br>
+                        <br>
+                        <b>PASSES MENSAIS</b><br>
+                        URBANAS - € 19,75<br>
+                        LINHA AZUL - € 18,70<br>
+                        COMBINADO - € 23,90 <br>
+                        <br>
+                        <br>
+                        <b>APOIOS SOCIAIS AO PASSE URBANAS</b>:<br>
+                        SOCIAL - atribuição através dos serviços<br>
+                        sociais do Municipio de Évora <br>
+                        JOVEM 1 - através do SASE das escolas<br>
+                        JOVEM 2 - € 9,88<br>
+                        JOVEM 3 - € 14,81<br>
+                        SOCIAL IDOSO - € 9,88<br></small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h4>Agentes trevo</h4>
+                    <br> Terminal Rodoviário de Évora
+                    <br> Av. S.Sebastião S/N 7000 Évora
+                    <br>
+                    <br> Tabacaria Arcada
+                    <br> Rua da República, Nº59
+                    <br> 7000 Évora
+                    <br>
+                    <br> Tabacaria Génesis
+                    <br> Rua João de Deus, Nº150
+                    <br> 7000 Évora
+                    <br>
+                    <br> Tabacaria Paris
+                    <br> Rua da República, Nº19
+                    <br> 7000 Évora
+                    <br>
+
+                    <br>
+                    <h4 id="mais">Mais informações</h4>
+                    <br> Telefone: 266 106 923 (Seg. à Sex. das 9h às 18h)
+                    <br> Fax: 266 106 936
+                    <br>
+                    <br> Mail: <a href="mailto:geral@trevo.com.pt">geral@trevo.com.pt</a>
+                    <br> Web: <a href="http://www.trevo.com.pt" style="text-decoration: none">www.trevo.com.pt</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="col-xs-12">
+            <footer>
+                <p>&copy; Projecto Integrado 2015/2016 - Eng. Informática - Universidade de Évora</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+
+    <div id="carreira21" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Carreira 21</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align:center">Dias Úteis</h4>
+                    <img src="img/horario_21_uteis.png" style="max-width: 100%; display: block; margin: 0 auto">
+                    <h4 style="text-align:center">Sábado</h4>
+                    <img src="img/horario_21_sabado.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="carreira22" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Carreira 22</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align: center">Dias Úteis</h4>
+                    <img src="img/horario_22.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="carreira31" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Carreira 31</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align:center">Dias Úteis</h4>
+                    <img src="img/horario_31_uteis.png" style="max-width: 100%; display: block; margin: 0 auto">
+                    <h4 style="text-align:center">Sábado, Domingo e Feriados</h4>
+                    <img src="img/horario_31_sabado.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="carreira33" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Carreira 33</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align:center">Dias Úteis</h4>
+                    <img src="img/horario_33_uteis.png" style="max-width: 100%; display: block; margin: 0 auto">
+                    <h4 style="text-align:center">Sábado, Domingos e Feriados</h4>
+                    <img src="img/horario_33_sabado.png" style="max-width: 100%; display: block; margin: 0 auto">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal paragens -->
+    <div id="carreira21mapa" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Paragens - Carreira 21</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="googleMap1" style="width:800px;height:380px;margin: 0 auto"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="carreira22mapa" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Paragens - Carreira 22</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="googleMap2" style="width:800px;height:380px;margin: 0 auto"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="carreira31mapa" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Paragens - Carreira 31</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="googleMap3" style="width:800px;height:380px;margin: 0 auto"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="carreira33mapa" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Paragens - Carreira 33</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="googleMap4" style="width:800px;height:380px;margin: 0 auto"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="trevo.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+
+            if(window.location.href.indexOf('#carreira21') != -1) {
+                $('#carreira21').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira22') != -1) {
+                $('#carreira22').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira31') != -1) {
+                $('#carreira31').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira33') != -1) {
+                $('#carreira33').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira21mapa') != -1) {
+                $('#carreira21mapa').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira22mapa') != -1) {
+                $('#carreira22mapa').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira31mapa') != -1) {
+                $('#carreira31mapa').modal('show');
+            }
+            
+            if(window.location.href.indexOf('#carreira33mapa') != -1) {
+                $('#carreira33mapa').modal('show');
+            }
+
+        });
+    </script>
+    
+</body>
+
+</html>

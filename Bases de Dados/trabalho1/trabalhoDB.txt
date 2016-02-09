@@ -1,0 +1,179 @@
+DROP TABLE IF EXISTS marcaAut CASCADE;
+DROP TABLE IF EXISTS autocarro CASCADE;
+DROP TABLE IF EXISTS motorista CASCADE;
+DROP TABLE IF EXISTS percurso CASCADE;
+DROP TABLE IF EXISTS paragem CASCADE;
+DROP TABLE IF EXISTS passoPercurso CASCADE;
+DROP TABLE IF EXISTS fezPercurso CASCADE;
+DROP TABLE IF EXISTS bilhete CASCADE;
+
+CREATE TABLE marcaAut (
+    Marca           VARCHAR(15),
+    Modelo          VARCHAR(15) PRIMARY KEY,
+    NmaxP           INTEGER CHECK(NmaxP > 0)
+    );
+
+CREATE TABLE autocarro (
+    Matricula       CHAR(8) PRIMARY KEY,
+    Modelo          VARCHAR(15) REFERENCES marcaAut(Modelo),
+    AnoMatricula    INTEGER CHECK(AnoMatricula > 1900)
+    );
+
+CREATE TABLE motorista (
+    NBi             CHAR(8) PRIMARY KEY,
+    Nome            VARCHAR(15),
+    Morada          VARCHAR(30)
+    );
+
+CREATE TABLE percurso (
+    CodigoP         CHAR(2) PRIMARY KEY,
+    NomeP           VARCHAR(45),
+    NmaxP           INTEGER CHECK(NmaxP > 0)
+    );
+
+CREATE TABLE paragem (
+    Paragem         VARCHAR(35) PRIMARY KEY
+);
+
+CREATE TABLE passoPercurso (
+    CodigoP         CHAR(2) REFERENCES percurso(CodigoP),
+    Minutos         INTEGER CHECK(Minutos >= 0),
+    Paragem         VARCHAR(35) REFERENCES paragem(Paragem),
+    PRIMARY KEY(CodigoP, Minutos, Paragem)
+);
+
+CREATE TABLE fezPercurso (
+    CodigoP         CHAR(2) REFERENCES percurso(CodigoP),
+    NBi             CHAR(8) REFERENCES motorista(NBi),
+    Matricula       CHAR(8) REFERENCES autocarro(Matricula),
+    DataInicio      TIMESTAMP UNIQUE,
+    DataFim         TIMESTAMP,
+    PRIMARY KEY(NBi, DataInicio)
+);
+
+CREATE TABLE bilhete (
+    NBi             CHAR(8) REFERENCES motorista(NBi),
+    DataInicio      TIMESTAMP REFERENCES fezPercurso(DataInicio),
+    DataPass        TIMESTAMP,
+    Paragem         VARCHAR(35) REFERENCES paragem(Paragem),
+    PRIMARY KEY(DataPass, Paragem)
+);
+
+INSERT INTO marcaAut VALUES('MAN', 'UL-303', 60);
+INSERT INTO marcaAut VALUES('Mercedes', 'Benz', 20);
+INSERT INTO marcaAut VALUES('IVECO', 'Bus', 45);
+
+INSERT INTO autocarro VALUES('22-AT-76', 'UL-303', 2014);
+INSERT INTO autocarro VALUES('22-AT-78', 'UL-303', 2014);
+INSERT INTO autocarro VALUES('45-MC-33', 'Benz', 2015);
+INSERT INTO autocarro VALUES('66-NG-66', 'Bus', 2013);
+INSERT INTO autocarro VALUES('96-TO-77', 'Bus', 2013);
+
+INSERT INTO motorista VALUES('30254891', 'Silva', 'Cruz da Picada');
+INSERT INTO motorista VALUES('30303169', 'Santos', 'Rua de Valverde');
+INSERT INTO motorista VALUES('25303030', 'Gomes', 'Rua do Comes');
+
+INSERT INTO percurso VALUES('21', 'Louredo - Lg Luis de Camoes', 45);
+INSERT INTO percurso VALUES('23', '25 de Abril - Malagueira', 20);
+
+INSERT INTO paragem VALUES('Granito - Estrada da Igrejinha');
+INSERT INTO paragem VALUES('Louredo');
+INSERT INTO paragem VALUES('Sra dos Aflitos');
+INSERT INTO paragem VALUES('Granito');
+INSERT INTO paragem VALUES('Eb 2.3 Conde Vilalva');
+INSERT INTO paragem VALUES('Lg Luis de Camoes');
+INSERT INTO paragem VALUES('25 de Abril');
+INSERT INTO paragem VALUES('St. Antonio');
+INSERT INTO paragem VALUES('Comenda');
+INSERT INTO paragem VALUES('Av Leonor Fernandes');
+INSERT INTO paragem VALUES('Pc Giraldes');
+INSERT INTO paragem VALUES('ES Andre de Gouveia');
+INSERT INTO paragem VALUES('Malagueira');
+INSERT INTO paragem VALUES('Cartuxa');
+INSERT INTO paragem VALUES('Vista Alegre');
+INSERT INTO paragem VALUES('Nogueiras');
+
+INSERT INTO passoPercurso VALUES('21', 0, 'Granito - Estrada da Igrejinha');
+INSERT INTO passoPercurso VALUES('21', 6, 'Louredo');
+INSERT INTO passoPercurso VALUES('21', 13, 'Sra dos Aflitos');
+INSERT INTO passoPercurso VALUES('21', 20, 'Granito');
+INSERT INTO passoPercurso VALUES('21', 27, 'Eb 2.3 Conde Vilalva');
+INSERT INTO passoPercurso VALUES('21', 34, 'Lg Luis de Camoes');
+INSERT INTO passoPercurso VALUES('21', 40, 'Granito');
+INSERT INTO passoPercurso VALUES('21', 45, 'Eb 2.3 Conde Vilalva');
+INSERT INTO passoPercurso VALUES('21', 54, 'Louredo');
+INSERT INTO passoPercurso VALUES('21', 61, 'Sra dos Aflitos');
+INSERT INTO passoPercurso VALUES('21', 66, 'Granito');
+
+INSERT INTO passoPercurso VALUES('23', 0, '25 de Abril');
+INSERT INTO passoPercurso VALUES('23', 2, 'St. Antonio');
+INSERT INTO passoPercurso VALUES('23', 4, 'Comenda');
+INSERT INTO passoPercurso VALUES('23', 7, 'Av Leonor Fernandes');
+INSERT INTO passoPercurso VALUES('23', 14, 'Pc Giraldes');
+INSERT INTO passoPercurso VALUES('23', 20, 'ES Andre de Gouveia');
+INSERT INTO passoPercurso VALUES('23', 22, 'Malagueira');
+INSERT INTO passoPercurso VALUES('23', 26, 'Cartuxa');
+INSERT INTO passoPercurso VALUES('23', 28, 'Vista Alegre');
+INSERT INTO passoPercurso VALUES('23', 34, 'Lg Luis de Camoes');
+INSERT INTO passoPercurso VALUES('23', 39, 'Nogueiras');
+INSERT INTO passoPercurso VALUES('23', 44, '25 de Abril');
+
+INSERT INTO fezPercurso VALUES('21', '25303030', '66-NG-66', '2009-12-11 06:20:00', '2009-12-11 06:47:04');
+INSERT INTO fezPercurso VALUES('23', '30254891', '45-MC-33', '2009-12-11 11:20:00', '2009-12-11 11:57:05');
+INSERT INTO fezPercurso VALUES('21', '30254891', '45-MC-33', '2009-12-12 11:20:00', '2009-12-12 11:57:05');
+
+
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:20:00', 'Granito - Estrada da Igrejinha');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:20:01', 'Granito - Estrada da Igrejinha');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:20:03', 'Granito - Estrada da Igrejinha');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:20:04', 'Granito - Estrada da Igrejinha');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:20:06', 'Granito - Estrada da Igrejinha');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:26:00', 'Louredo');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:26:03', 'Louredo');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:26:06', 'Louredo');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:33:00', 'Sra dos Aflitos');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:40:00', 'Granito');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:40:01', 'Granito');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:40:02', 'Granito');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:40:03', 'Granito');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:47:00', 'Eb 2.3 Conde Vilalva');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:47:01', 'Eb 2.3 Conde Vilalva');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:47:02', 'Eb 2.3 Conde Vilalva');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:47:03', 'Eb 2.3 Conde Vilalva');
+INSERT INTO bilhete VALUES('25303030', '2009-12-11 06:20:00', '2009-12-11 06:47:04', 'Eb 2.3 Conde Vilalva');
+
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:20:00', '25 de Abril');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:20:01', '25 de Abril');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:20:02', '25 de Abril');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:20:03', '25 de Abril');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:22:00', 'St. Antonio');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:22:01', 'St. Antonio');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:22:02', 'St. Antonio');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:22:03', 'St. Antonio');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:22:04', 'St. Antonio');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:24:00', 'Comenda');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:27:00', 'Av Leonor Fernandes');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:27:01', 'Av Leonor Fernandes');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:27:02', 'Av Leonor Fernandes');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:34:00', 'Pc Giraldes');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:42:00', 'Malagueira');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:42:01', 'Malagueira');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:42:02', 'Malagueira');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:44:00', 'Cartuxa');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:44:01', 'Cartuxa');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:44:02', 'Cartuxa');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:44:03', 'Cartuxa');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:44:04', 'Cartuxa');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:46:00', 'Vista Alegre');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:46:01', 'Vista Alegre');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:46:02', 'Vista Alegre');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:00', 'Nogueiras');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:01', 'Nogueiras');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:02', 'Nogueiras');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:03', 'Nogueiras');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:04', 'Nogueiras');
+INSERT INTO bilhete VALUES('30254891', '2009-12-11 11:20:00', '2009-12-11 11:57:05', 'Nogueiras');
+
+
+
+

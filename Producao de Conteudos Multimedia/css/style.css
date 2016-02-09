@@ -1,0 +1,89 @@
+html,
+body,
+.container-fluid,
+.main-row {
+    height: 100%;
+    background-color: #171C1E;
+}
+
+body {
+
+}
+
+.sidebar {
+    height: 100%;
+    background-color: #171C1E;
+}
+
+.border-top-light {
+    border-top: solid 1px #1E272C;
+}
+
+.border-top {
+    border-top: solid 1px black;
+}
+
+.border-bot-light {
+    border-bottom: solid 1px #1E272C;
+}
+
+.border-bot {
+    border-bottom: solid 1px black;
+}
+
+.border-left-light {
+    border-left: solid 1px #1E272C;
+}
+
+.border-left {
+    border-left: solid 1px black;
+}
+
+.border-right-light {
+    border-right: solid 1px #1E272C;
+}
+
+.border-right {
+    border-right: solid 1px black;
+}
+
+.sidebar-item {
+    border-bottom: solid 1px #1E272C;
+}
+
+.store-item {
+    border-bottom: solid 1px;
+    border-bottom-color: #1E272C;
+}
+
+#console-wrapper {
+    height: 50%;
+    background-color: black;
+    font-family: monospace;
+    text-decoration: none;
+    color: green;
+    border-color: #1E272C;
+    border-radius: 5px;
+}
+
+#tab-wrapper {
+    padding: 0;
+    margin: 0;
+}
+
+#store-tab li a {
+    border: none;
+    border-bottom: solid 1px black;
+    border-radius: 0px;
+    margin: 0px;
+    color: #c9c9c9;
+}
+
+#store-tab li a:hover {
+    background-color: #1f2527;
+}
+
+#store-tab li.active a {
+    border-bottom-color: black;
+    background-color: #1f2527;
+}
