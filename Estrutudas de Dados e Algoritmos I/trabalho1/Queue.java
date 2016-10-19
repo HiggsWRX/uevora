@@ -13,9 +13,7 @@ public class Queue<E> {
     }
 
     public E dequeue() {
-        E temp = queue.get(0);
-        queue.remove(0);
-        return temp;
+        return queue.get(0);
     }
 
     public E front() {
