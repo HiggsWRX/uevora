@@ -1,0 +1,46 @@
+Implementado com queues(linked lists) para facilmente adicionar e remover
+processos dos estados
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+main
+
+filename = "something.xpto"
+cache = readfile(filename)  // mete em cache os processos lidos
+numprocessostotal = cache.numprocessos
+inicializar_memoria(MEM)    // limpar lixo da memoria necessaria (300)
+
+while (processo em algum estado sem ser exit) {
+    if (prox processo na CACHE ja chegou ao CPU neste instante)
+        moverProcesso(cache -> new)
+        carregarPraMemoria(processo)
+    if (prox processo no BLOCKED ja passou 3 turnos blocked)
+        moverProcesso(blocked -> ready)
+    if (processos FROM NEW < 4)
+        moverProcesso(new -> ready)
+    if (nenhumProcessoNoCPU)
+        moverProcesso(ready -> CPU)
+    if (processoNoCPU) {
+        correrProcesso()
+        if (ficaBlocked)
+            moverProcesso(cpu -> blocked)
+        else if (termina)
+            moverProcesso(cpu -> exit)
+            tirarDaMemoria(processo)
+        else if (fork)
+            fork(processo)
+        if (tempo no CPU == QUANTUM)
+            moverProcesso(cpu -> ready)
+    }
+}
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+fork(processo)
+
+instruçoes do novo processo = instruçoes do processo depois do fork
+variaveis do novo processo = variaveis do processo original
+carregar novo processo em memoria
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+print(memoria)
+
+imprimir espaço a espaço.
+se espaço tem variavel, imprime valor da variavel (0), (1), etc...
+se espaço tem instruçao, imprime estruçao [11], [54], etc...
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/

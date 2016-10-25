@@ -1,0 +1,22 @@
+Info
+
+O trabalho consiste em criar dois novos "comandos" para UNIX, huff <ficheiro> - que comprime o ficheiro utilizando codigos de huffman, e uhuff <ficheiro>, que descomprime o ficheiro "huffmanizado".
+
+Começa-se por abrir o ficheiro e criar uma tabela de frequencias, que conta quantas vezes cada caracter aparece num determinado texto, e de seguida, com esta tabela cria-se uma lista ligada com os caracteres e as suas frequências em ordem decrescente, os com maior frequência primeiro, e os com menor em último. Isto ajuda no algoritmo de huffman, em que se vai criando os nós para a árvore de huffman com os caracteres com menor frequência, que neste caso era apenas remover o último elemento da lista ligada. Implementou-se também uma função para se inserir numa lista ligada um valor na sua posição em que pertence, dada uma lista em ordem decrescente, pois isto ajuda a inserir na lista na sua devida ordem o novo nó criado com os dois nós como filhos e que tem a frequência dos dois juntos.
+Após isto a árvore de huffman está criada. É necessário agora atravessar a árvore para ir gerando os códigos. Quando se anda para a esquerda, adiciona-se um 0 ao código desse nó, quando se anda para a direita, um 1.
+
+De seguida começa-se a escrever num novo ficheiro de extensão .huff os códigos gerados associados a cada caracter do texto original.
+
+Conseguiu-se implementar os códigos como bits 0 e 1 (bónus opcional) em vez de array de caracteres no ficheiro.
+
+É também guardado no inicio do ficheiro comprimido uma sequência de caracteres que ajudará no próximo passo a reconstruir a árvore de huffman para descomprimir o ficheiro. Guarda-se o número de simbolos validos (letras diferentes que aparecem no texto) assim como as suas frequências. Com isto é possivel recriar a árvore original através do mesmo algoritmo de huffman.
+
+Ao inserir o comando para descomprimir um ficheiro comprimido, o trabalho consegue criar a árvore original através da sequência gravada no inicio, referido no último parágrafo.
+De seguida são lidos os restantes bytes do ficheiro e transformados em um array de bits. Com a árvore original e o array de bits temos as ferramentas necessárias para restituir o ficheiro original.
+
+Algumas considerações:
+O trabalho não suporta caracteres extendidos de ASCII (latinos). Com caracteres latinos, por vezes a criação da árvore dava segmentation fault. Com mais algum tempo seria possível retificar e acrescentar o suporte.
+
+Alguns ficheiros com numero elevado de caracteres não funcionam, gerando um segmentation fault. Por enquanto ainda se conseguiu descobrir como resolver.
+
+Alguns ficheiros a serem descomprimidos geram no final dele um caracter a mais. Também ainda não foi possível determinar o bug.

@@ -1,0 +1,15 @@
+a : int = 0;
+b : string = "ola";
+
+f (b: string) : void {
+    c : int;
+};
+
+main () : void {
+  a : bool = true;
+
+  if a then {
+    b = "hello, world";
+    f(b);
+  };
+};
