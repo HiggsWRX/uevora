@@ -1,0 +1,19 @@
+Elementos do grupo:
+    Hiago Oliveira - aluno 29248
+
+Detalhes da implementação
+    A estrutura escolhida para guardar utilizadores e mensagens privadas foi
+    o dicionário, guardado num ficheiro txt.
+    No caso dos utilizadores, o username é guardado como a chave e
+    a sua hashed password como o valor. É utilizada a biblioteca json do python
+    para facilmente guardar e ler de um ficheiro os dicionários.
+    No caso das mensagens privadas, é semelhante, um ficheiro em que a chave
+    é o utilizador que recebeu a mensagem privada, sendo o valor é a própria
+    mensagem, que contem a data, hora, e remetente da mensagem, como dita o
+    protocolo.
+    As mensagens públicas estão também num ficheiro normal txt, e cada linha
+    do ficheiro assume-se uma mensagem diferente.
+
+Extras implementados
+    Foram implementados 2 extras, a limitação das mensagens consoante o MAXDAYS,
+    e a listagem dos utilizadores online e loggados no sistema.
