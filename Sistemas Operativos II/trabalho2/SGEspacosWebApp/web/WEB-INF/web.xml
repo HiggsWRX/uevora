@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    
+    <servlet>
+        <servlet-name>ShopServlet</servlet-name>
+        <servlet-class>eshop.ShopServlet</servlet-class>
+        <!-- ################################ -->
+        <init-param>
+            <param-name>base</param-name>
+            <param-value>shop</param-value>
+        </init-param>
+        <init-param>
+            <param-name>imageURL</param-name>
+            <param-value>images/</param-value>
+        </init-param>
+        <!-- ################################ -->
+        <init-param>
+            <param-name>PostgreSQL_dbURL</param-name>
+            <param-value>alunos.di.uevora.pt</param-value>
+        </init-param>        
+        <init-param>
+            <param-name>PostgreSQL_dbName</param-name>
+            <param-value>l29248
+            </param-value>
+        </init-param>        
+        <init-param>
+            <param-name>PostgreSQL_dbUser</param-name>
+            <param-value>l29248</param-value>   <!-- nao altere -->
+        </init-param>        
+        <init-param>
+            <param-name>PostgreSQL_dbPassword</param-name>
+            <param-value>hiagobd</param-value>   <!-- nao altere -->
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ShopServlet</servlet-name>
+        <url-pattern>/shop/*</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>shop</welcome-file>
+    </welcome-file-list>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
