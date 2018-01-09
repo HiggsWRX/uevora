@@ -1,0 +1,26 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"All Autocomplete",
+		"BracketHighlighter",
+		"DocBlockr",
+		"FileOpTabContextMenu",
+		"Material Theme",
+		"Material Theme - Appbar",
+		"Package Control",
+		"PackageResourceViewer",
+		"PHP Companion",
+		"Phpcs",
+		"PHPIntel",
+		"PostgreSQL Syntax Highlighting",
+		"SideBarEnhancements",
+		"SVN",
+		"Terminal",
+		"Todo.txt Syntax"
+	]
+}
